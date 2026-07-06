@@ -1,0 +1,50 @@
+# ── Doctrine-RAG configuration ──────────────────────────────
+# Single source of truth for paths, models, and experiment grid.
+
+paths:
+  raw_pdfs:   "data/raw_pdfs"
+  parsed:     "data/parsed"
+  eval:       "data/eval"
+  index:      "data/index"
+  results:    "results"
+
+corpus:
+  fms:                       # manuals in the study
+    - "FM 5-0"
+    # - "FM 3-0"
+    # - "FM 7-0"
+    # - "FM 6-0"
+    # - "FM 1"
+
+chunking:
+  strategy: "paragraph"      # paragraph | fixed | semantic
+  # fixed-token fallback params (only used if strategy: fixed)
+  fixed_tokens: 256
+  fixed_overlap: 32
+
+retrieval:
+  method: "hybrid"           # bm25 | dense | hybrid
+  top_k: 5
+  dense_model: "BAAI/bge-small-en-v1.5"
+  hybrid_alpha: 0.5          # weight: 1.0 = all dense, 0.0 = all BM25
+
+generation:
+  # candidate GGUF models for the quantization sweep
+  models:
+    - "Qwen2.5-3B-Instruct"
+    - "Llama-3.2-3B-Instruct"
+    - "Phi-3-mini-4k-instruct"
+  quant_levels: ["Q8_0", "Q4_K_M"]   # add "f16" if VRAM allows
+  n_gpu_layers: -1           # -1 = offload all; swept in 05_benchmark
+  max_tokens: 512
+  temperature: 0.0           # deterministic for eval reproducibility
+
+judge:
+  provider: "anthropic"
+  model: "claude-sonnet-4-5"   # verify exact string against current API docs
+  rubric: ["faithfulness", "correctness", "citation_accuracy"]
+
+eval:
+  qa_file: "data/eval/qa_pairs.jsonl"
+  negative_file: "data/eval/negative_qa.jsonl"
+  retrieval_metrics: ["recall@k", "mrr"]

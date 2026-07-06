@@ -1,0 +1,34 @@
+# Data (regenerable or redistributable-restricted)
+data/raw_pdfs/*.pdf
+data/index/*.faiss
+data/index/*.pkl
+data/index/*.npy
+
+# Models
+*.gguf
+*.bin
+*.safetensors
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+*.egg-info/
+
+# Notebooks
+.ipynb_checkpoints/
+
+# Secrets
+.env
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+
+results/**/*.png
+results/**/*.csv
+!results/**/.gitkeep
