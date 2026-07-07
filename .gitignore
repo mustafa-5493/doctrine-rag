@@ -19,7 +19,7 @@ venv/
 # Notebooks
 .ipynb_checkpoints/
 
-# Secrets
+# Secrets — never commit your API key
 .env
 
 # OS / editor
@@ -28,7 +28,9 @@ Thumbs.db
 .vscode/
 .idea/
 
-
-results/**/*.png
-results/**/*.csv
+# Results — keep final tables/figures, ignore scratch output
+results/scratch/
+results/**/*.tmp
+!results/tables/*.csv
+!results/figures/*.png
 !results/**/.gitkeep
