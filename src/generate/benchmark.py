@@ -117,7 +117,8 @@ def sweep(config: dict, quants: list[str], layer_options: list[int],
           n_questions: int, models_dir: str = "models") -> list[dict]:
     eval_dir = resolve(config["paths"].get("eval", "data/eval"))
     questions = [json.loads(l) for l in
-                open(eval_dir / "qa_pairs_verified.jsonl")][:n_questions]
+                open(eval_dir / "qa_pairs_verified.jsonl",
+                    encoding="utf-8")][:n_questions]
     print(f"Benchmarking with {len(questions)} sample questions")
 
     retriever = Retriever.from_config(config)
@@ -152,7 +153,7 @@ def save_results(rows: list[dict], config: dict) -> None:
 
     # summary CSV (one row per config, no per-question detail)
     csv_path = tables_dir / "benchmark_summary.csv"
-    with open(csv_path, "w", newline="") as f:
+    with open(csv_path, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["quant", "n_gpu_layers", "ok", "load_seconds",
                    "vram_peak_mb", "avg_tokens_per_sec", "n_succeeded",
@@ -168,7 +169,7 @@ def save_results(rows: list[dict], config: dict) -> None:
 
     # full detail (generations included) for later quality judging
     full_path = results_dir / "benchmark_full.jsonl"
-    with open(full_path, "w") as f:
+    with open(full_path, "w", encoding="utf-8") as f:
         for r in rows:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
     print(f"Saved full detail (for judge scoring) -> {full_path}")

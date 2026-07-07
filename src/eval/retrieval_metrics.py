@@ -1,5 +1,5 @@
 """
-retrieval_metrics.py -> Stage 4: retrieval quality metrics.
+retrieval_metrics.py — Stage 4: retrieval quality metrics.
 
 Runs the verified vanilla eval set through the retriever and computes, for
 each retrieval method (bm25 / dense / hybrid):
@@ -8,6 +8,13 @@ each retrieval method (bm25 / dense / hybrid):
                anywhere in the top-k results (reported for several k)
     MRR        mean reciprocal rank of the gold paragraph (0 if absent
                from the searched pool)
+
+This is the retrieval-half of your ablation table — the "does hybrid beat
+BM25/dense alone on doctrine text" result. Negative-split questions are
+excluded from these metrics by default: their gold answer is a *correction*,
+not a simple paragraph lookup, so recall/MRR against gold_chunk_id is still
+meaningful (the corrected fact does live in that paragraph) but you may want
+to report them separately — see --include-negative.
 
 Usage:
     python -m src.eval.retrieval_metrics
@@ -25,13 +32,14 @@ from src.utils.io import load_config, resolve
 
 def load_eval_questions(config: dict, include_negative: bool = False) -> list[dict]:
     eval_dir = resolve(config["paths"].get("eval", "data/eval"))
-    qs = [json.loads(l) for l in open(eval_dir / "qa_pairs_verified.jsonl")]
+    qs = [json.loads(l) for l in open(eval_dir / "qa_pairs_verified.jsonl",
+                                      encoding="utf-8")]
     for q in qs:
         q["_split"] = "vanilla"
     if include_negative:
         neg_path = eval_dir / "negative_qa_verified.jsonl"
         if neg_path.exists():
-            neg = [json.loads(l) for l in open(neg_path)]
+            neg = [json.loads(l) for l in open(neg_path, encoding="utf-8")]
             for q in neg:
                 q["_split"] = "negative"
             qs += neg
@@ -85,7 +93,7 @@ def save_results(results: dict, config: dict, ks: list[int]) -> None:
     out_dir = resolve(config["paths"].get("results", "results")) / "tables"
     out_dir.mkdir(parents=True, exist_ok=True)
     out_path = out_dir / "retrieval_metrics.csv"
-    with open(out_path, "w", newline="") as f:
+    with open(out_path, "w", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         w.writerow(["method", *[f"recall@{k}" for k in ks], "mrr", "n"])
         for method, res in results.items():

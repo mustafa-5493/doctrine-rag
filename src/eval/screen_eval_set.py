@@ -80,7 +80,8 @@ def screen(config: dict, split: str, pass_sample_frac: float = 0.2,
 
     eval_dir = resolve(config["paths"].get("eval", "data/eval"))
     fname = "qa_pairs" if split == "vanilla" else "negative_qa"
-    rows = [json.loads(l) for l in open(eval_dir / f"{fname}.jsonl")]
+    rows = [json.loads(l) for l in
+           open(eval_dir / f"{fname}.jsonl", encoding="utf-8")]
 
     chunks = {c["chunk_id"]: c for c in load_corpus(config)}
     template = VANILLA_SCREEN if split == "vanilla" else NEGATIVE_SCREEN
@@ -103,7 +104,7 @@ def screen(config: dict, split: str, pass_sample_frac: float = 0.2,
 
     # persist full screened set
     out_jsonl = eval_dir / f"{fname}_screened.jsonl"
-    with open(out_jsonl, "w") as f:
+    with open(out_jsonl, "w", encoding="utf-8") as f:
         for r in flagged + passed:
             f.write(json.dumps(r, ensure_ascii=False) + "\n")
 
@@ -113,7 +114,7 @@ def screen(config: dict, split: str, pass_sample_frac: float = 0.2,
         if passed else []
     review_rows = [("FLAG", r) for r in flagged] + [("PASS-CHECK", r) for r in sample]
     review_path = f"{fname}_flagged_review.txt"
-    with open(review_path, "w") as f:
+    with open(review_path, "w", encoding="utf-8") as f:
         for tag, r in review_rows:
             src = chunks[r["gold_chunk_id"]]["text"]
             f.write(f"{'='*70}\n[{tag}] qid={r['qid']} para={r['gold_para_id']} "
