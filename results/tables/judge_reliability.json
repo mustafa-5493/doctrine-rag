@@ -1,0 +1,23 @@
+{
+  "correctness": {
+    "n": 100,
+    "exact_pct": 0.96,
+    "within1_pct": 1.0,
+    "quadratic_weighted_kappa": 0.984,
+    "spearman": 0.983,
+    "mean_abs_diff": 0.04
+  },
+  "faithfulness": {
+    "n": 100,
+    "exact_pct": 0.99,
+    "within1_pct": 1.0,
+    "quadratic_weighted_kappa": 0.985,
+    "spearman": 0.963,
+    "mean_abs_diff": 0.01
+  },
+  "cited_gold_paragraph": {
+    "n": 100,
+    "agreement_pct": 1.0,
+    "cohen_kappa": 1.0
+  }
+}
