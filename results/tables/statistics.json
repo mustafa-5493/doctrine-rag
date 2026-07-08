@@ -1,0 +1,288 @@
+{
+  "bootstrap_ci": {
+    "q4_k_m@-1": {
+      "correctness": {
+        "mean": 4.16,
+        "ci_low": 3.88,
+        "ci_high": 4.413,
+        "n": 75
+      },
+      "faithfulness": {
+        "mean": 4.72,
+        "ci_low": 4.533,
+        "ci_high": 4.867,
+        "n": 75
+      },
+      "cited_gold_paragraph": {
+        "mean": 0.613,
+        "ci_low": 0.507,
+        "ci_high": 0.72,
+        "n": 75
+      }
+    },
+    "q4_k_m@0": {
+      "correctness": {
+        "mean": 4.12,
+        "ci_low": 3.84,
+        "ci_high": 4.387,
+        "n": 75
+      },
+      "faithfulness": {
+        "mean": 4.707,
+        "ci_low": 4.52,
+        "ci_high": 4.867,
+        "n": 75
+      },
+      "cited_gold_paragraph": {
+        "mean": 0.64,
+        "ci_low": 0.533,
+        "ci_high": 0.747,
+        "n": 75
+      }
+    },
+    "q4_k_m@16": {
+      "correctness": {
+        "mean": 4.173,
+        "ci_low": 3.893,
+        "ci_high": 4.427,
+        "n": 75
+      },
+      "faithfulness": {
+        "mean": 4.72,
+        "ci_low": 4.533,
+        "ci_high": 4.867,
+        "n": 75
+      },
+      "cited_gold_paragraph": {
+        "mean": 0.627,
+        "ci_low": 0.52,
+        "ci_high": 0.733,
+        "n": 75
+      }
+    },
+    "q4_k_m@24": {
+      "correctness": {
+        "mean": 4.107,
+        "ci_low": 3.827,
+        "ci_high": 4.373,
+        "n": 75
+      },
+      "faithfulness": {
+        "mean": 4.693,
+        "ci_low": 4.507,
+        "ci_high": 4.853,
+        "n": 75
+      },
+      "cited_gold_paragraph": {
+        "mean": 0.6,
+        "ci_low": 0.493,
+        "ci_high": 0.707,
+        "n": 75
+      }
+    },
+    "q4_k_m@8": {
+      "correctness": {
+        "mean": 4.107,
+        "ci_low": 3.827,
+        "ci_high": 4.373,
+        "n": 75
+      },
+      "faithfulness": {
+        "mean": 4.667,
+        "ci_low": 4.48,
+        "ci_high": 4.827,
+        "n": 75
+      },
+      "cited_gold_paragraph": {
+        "mean": 0.6,
+        "ci_low": 0.493,
+        "ci_high": 0.707,
+        "n": 75
+      }
+    },
+    "q8_0@-1": {
+      "correctness": {
+        "mean": 4.347,
+        "ci_low": 4.093,
+        "ci_high": 4.573,
+        "n": 75
+      },
+      "faithfulness": {
+        "mean": 4.853,
+        "ci_low": 4.707,
+        "ci_high": 4.96,
+        "n": 75
+      },
+      "cited_gold_paragraph": {
+        "mean": 0.747,
+        "ci_low": 0.64,
+        "ci_high": 0.84,
+        "n": 75
+      }
+    },
+    "q8_0@0": {
+      "correctness": {
+        "mean": 4.307,
+        "ci_low": 4.053,
+        "ci_high": 4.533,
+        "n": 75
+      },
+      "faithfulness": {
+        "mean": 4.853,
+        "ci_low": 4.733,
+        "ci_high": 4.947,
+        "n": 75
+      },
+      "cited_gold_paragraph": {
+        "mean": 0.76,
+        "ci_low": 0.653,
+        "ci_high": 0.853,
+        "n": 75
+      }
+    },
+    "q8_0@16": {
+      "correctness": {
+        "mean": 4.307,
+        "ci_low": 4.053,
+        "ci_high": 4.533,
+        "n": 75
+      },
+      "faithfulness": {
+        "mean": 4.827,
+        "ci_low": 4.707,
+        "ci_high": 4.933,
+        "n": 75
+      },
+      "cited_gold_paragraph": {
+        "mean": 0.76,
+        "ci_low": 0.666,
+        "ci_high": 0.853,
+        "n": 75
+      }
+    },
+    "q8_0@24": {
+      "correctness": {
+        "mean": 4.333,
+        "ci_low": 4.08,
+        "ci_high": 4.573,
+        "n": 75
+      },
+      "faithfulness": {
+        "mean": 4.813,
+        "ci_low": 4.667,
+        "ci_high": 4.933,
+        "n": 75
+      },
+      "cited_gold_paragraph": {
+        "mean": 0.733,
+        "ci_low": 0.627,
+        "ci_high": 0.827,
+        "n": 75
+      }
+    },
+    "q8_0@8": {
+      "correctness": {
+        "mean": 4.307,
+        "ci_low": 4.04,
+        "ci_high": 4.547,
+        "n": 75
+      },
+      "faithfulness": {
+        "mean": 4.853,
+        "ci_low": 4.747,
+        "ci_high": 4.947,
+        "n": 75
+      },
+      "cited_gold_paragraph": {
+        "mean": 0.76,
+        "ci_low": 0.666,
+        "ci_high": 0.853,
+        "n": 75
+      }
+    }
+  },
+  "quant_comparison": {
+    "correctness": {
+      "test": "wilcoxon",
+      "statistic": 64.0,
+      "p": 0.06316279638336943,
+      "mean_diff": -0.187,
+      "diff_ci": [
+        -0.373,
+        -0.013
+      ],
+      "n": 75
+    },
+    "faithfulness": {
+      "test": "wilcoxon",
+      "statistic": 8.0,
+      "p": 0.03887138185480146,
+      "mean_diff": -0.133,
+      "diff_ci": [
+        -0.267,
+        -0.027
+      ],
+      "n": 75
+    },
+    "cited_gold_paragraph": {
+      "test": "mcnemar_exact",
+      "p": 0.0308837890625,
+      "b": 4,
+      "c": 14,
+      "mean_diff": -0.133,
+      "diff_ci": [
+        -0.24,
+        -0.027
+      ],
+      "n": 75
+    }
+  },
+  "offload_friedman": {
+    "q4_k_m": {
+      "correctness": {
+        "test": "friedman",
+        "statistic": 2.2383419689120014,
+        "p": 0.6920161279720496,
+        "k_configs": 5,
+        "n_questions": 75
+      },
+      "faithfulness": {
+        "test": "friedman",
+        "statistic": 6.999999999997895,
+        "p": 0.13588822540054446,
+        "k_configs": 5,
+        "n_questions": 75
+      },
+      "cited_gold_paragraph": {
+        "test": "friedman",
+        "statistic": 2.9565217391307117,
+        "p": 0.565127551944945,
+        "k_configs": 5,
+        "n_questions": 75
+      }
+    },
+    "q8_0": {
+      "correctness": {
+        "test": "friedman",
+        "statistic": 0.903225806450791,
+        "p": 0.9240975697566272,
+        "k_configs": 5,
+        "n_questions": 75
+      },
+      "faithfulness": {
+        "test": "friedman",
+        "statistic": 1.1428571428561043,
+        "p": 0.8874141917266463,
+        "k_configs": 5,
+        "n_questions": 75
+      },
+      "cited_gold_paragraph": {
+        "test": "friedman",
+        "statistic": 3.1999999999970905,
+        "p": 0.524930946786574,
+        "k_configs": 5,
+        "n_questions": 75
+      }
+    }
+  }
+}
