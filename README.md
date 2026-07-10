@@ -4,7 +4,7 @@ Quantifying the quality/latency/memory tradeoff of running a full RAG pipeline o
 
 I built a retrieval-augmented generation system over a US Army Field Manual (FM 5-0) and benchmarked it end to end on a 4GB GTX 1050. Hybrid retrieval, a quantized local generator, an independent LLM judge for quality scoring, and statistical testing on every result.
 
-📄 **[Read the full writeup](writeup/paper.md)** for the method and results in detail.
+
 
 ![Offload valley](results/figures/offload_valley.png)
 
