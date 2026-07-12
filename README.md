@@ -12,7 +12,7 @@ I built a retrieval-augmented generation system over a US Army Field Manual (FM 
 
 I built this to find out what a full RAG pipeline actually costs in answer quality on cheap hardware, and where it starts breaking down. Everything below is measured on a 4GB GTX 1050.
 
-Three findings, which are supported by by confidence intervals and significance tests in the writeup:
+Three findings, which are supported by confidence intervals and significance tests in the writeup:
 
 - **Hybrid retrieval wins.** BM25 + dense embeddings combined via reciprocal rank fusion beats either one alone. The two methods respond in opposite directions to adversarially-phrased (false-premise) questions.
 - **Half-offloading a model to the GPU is slower than not offloading at all.** Throughput dips in the middle of the offload range before it recovers, because you're paying PCIe transfer costs without enough GPU compute to make up for it. So, on weak hardware ->  offload everything or nothing.
