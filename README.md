@@ -40,7 +40,7 @@ timely decisions in response to changing conditions... [FM 5-0, para 6-15]
 
 `/context` toggles whether you see the retrieved paragraphs, `/k N` changes how many get retrieved, `/quit` exits.
 
-## Bringing It All Together
+## Pipeline
 
 ```
 PDF (FM 5-0)
